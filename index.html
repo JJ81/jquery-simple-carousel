@@ -1,71 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		.carousel-container{
-			position: relative;
-		}
-		.carousel-slide{
-			display: none;
-			min-height: 500px;
-			background: #eee;
-			text-align: center;
-			line-height: 500px;
-		}
-
-		.carousel-slide:first-child{
-			display: block;
-		}
-
-		.pagination{
-			text-align: center;
-			width: 100%;
-			position: absolute;
-			bottom: 0;
-			left: 0;
-		}
-
-		.bullet{
-			width: 10px;
-			height: 10px;
-			display: inline-block;
-			background: #999;
-			border-radius: 50%;
-			margin-right: 5px;
-		}
-
-		.pagination .active{
-			background: #000;
-		}
-
-		.carousel-btn-next,
-		.carousel-btn-prev{
-			position: absolute;
-			top: 50%;
-			border: 1px solid #000;
-			width: 30px;
-			height: 30px;
-			margin-top: -15px;
-			line-height: 30px;
-			text-align: center;
-		}
-
-		.carousel-btn-next{
-			right: 0;
-		}
-
-		.carousel-btn-prev{
-			left: 0;
-		}
-
-
-
-	</style>
+	<title>Simple Carousel</title>
+	<link rel="stylesheet" href="./assets/stylesheet/styles.css" />
 </head>
 <body>
 
@@ -89,7 +26,7 @@
 	</div>
 
 <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
-<script src="./SimpleCarousel.js"></script>
+<script src="./assets/javascript/SimpleCarousel.js"></script>
 <script>
 	$('.carousel-container').SimpleCarousel({
 		slide : '.carousel-slide'
@@ -101,7 +38,6 @@
 		,loop : true
 		,autoSlide : 5000
 	});
-	// $('.carousel-container2').SimpleCarousel();
 </script>
 </body>
 </html>
