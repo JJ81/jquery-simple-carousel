@@ -5,4 +5,4 @@
 #### 버전 : v1.0.0
 #### 작성자 : 누구나 함께 소스를 발전시키고 리뷰를 진행해주시면 됩니다.
 #### 문의&이메일 : j.lee@jcorporationtech.com
-#### 라이센스 : MIT <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
+#### 라이센스 : <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
