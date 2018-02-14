@@ -1,7 +1,9 @@
 /**
+	Copyright jcoporation, http://jcorporationtech.com
 	Date : 2018.2.13
 	Name : simple carousel
-	email : j.lee@jcorporationtech.com
+	Email : j.lee@jcorporationtech.com
+	Author : Anybody can join us to enhance our code and review. Welcome.
 	License: MIT
 **/
 (function($) {
@@ -166,7 +168,6 @@
 		}
 
 		this.each(function () {
-			container = $(this);
 			$.initialize(this);
 		});
 	};
@@ -184,4 +185,5 @@
 		loop: false
 	};
 
+	
 }(jQuery));

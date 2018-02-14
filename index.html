@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Simple Carousel</title>
-	<link rel="stylesheet" href="./assets/stylesheet/styles.css" />
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="assets/stylesheet/styles.css" />
+	<title>jQuery Simple Carousel</title>
 </head>
+
 <body>
 
 	<div class="carousel-container">
@@ -25,19 +27,19 @@
 		<a href="#" class="carousel-btn-next">next</a>
 	</div>
 
-<script src="https://code.jquery.com/jquery-3.0.0.js"></script>
-<script src="./assets/javascript/SimpleCarousel.js"></script>
-<script>
-	$('.carousel-container').SimpleCarousel({
-		slide : '.carousel-slide'
-		,navigation: true
-		,bulletClassName : 'bullet'
-		,effect : 'fade'
-		,duration: 800
-		,pagination : true
-		,loop : true
-		,autoSlide : 5000
-	});
-</script>
+	<script src="./assets/javascript/vendor/jquery.min.js"></script>
+	<script src="./assets/javascript/SimpleCarousel.js"></script>
+	<script>
+		$('.carousel-container').SimpleCarousel({
+			slide : '.carousel-slide'
+			,navigation: true
+			,bulletClassName : 'bullet'
+			,effect : 'fade'
+			,duration: 800
+			,pagination : true
+			,loop : true
+			,autoSlide : 5000
+		});
+	</script>
 </body>
 </html>

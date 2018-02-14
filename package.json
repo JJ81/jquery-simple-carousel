@@ -1,0 +1,30 @@
+{
+  "name": "jquery-simple-carousel",
+  "version": "1.0.0",
+  "description": "simple carousel",
+  "main": "assets/javascript/SimpleCarousel.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://JJ81@github.com/JJ81/jquery-simple-carousel.git"
+  },
+  "keywords": [
+    "carousel"
+  ],
+  "author": "j.lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JJ81/jquery-simple-carousel/issues"
+  },
+  "homepage": "https://github.com/JJ81/jquery-simple-carousel#readme",
+  "devDependencies": {
+    "webpack": "^3.11.0",
+    "babel": "^6.23.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1"
+  },
+  "dependencies": {}
+}
