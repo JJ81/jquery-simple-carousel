@@ -5,58 +5,75 @@
   padding: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 .carousel-container{
   position: relative;
-}
-.carousel-slide{
-  display: none;
-  min-height: 500px;
-  background: #eee;
-  text-align: center;
-  line-height: 500px;
-}
+  // carousel에 맞게 임의로 설정을 해야 할 수 있다.
+  height: 500px;
+  overflow: hidden;
 
-.carousel-slide:first-child{
-  display: block;
-}
+  .pagination{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 
-.pagination{
-  text-align: center;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
+  .bullet{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: #999;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
 
-.bullet{
-  width: 10px;
-  height: 10px;
-  display: inline-block;
-  background: #999;
-  border-radius: 50%;
-  margin-right: 5px;
-}
+  .pagination .active{
+    background: #000;
+  }
 
-.pagination .active{
-  background: #000;
-}
+  .carousel-body{
+    height: 100%;
+  }
 
-.carousel-btn-next,
-.carousel-btn-prev{
-  position: absolute;
-  top: 50%;
-  border: 1px solid #000;
-  width: 30px;
-  height: 30px;
-  margin-top: -15px;
-  line-height: 30px;
-  text-align: center;
-}
+  .carousel-slide{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    background: #eee;
+    text-align: center;
+    // 컨테이너에 맞게 설정
+    min-height: 500px;
+    // 임의의 설정으로 필요가 없음
+    line-height: 500px;
+  }
 
-.carousel-btn-next{
-  right: 0;
-}
+  .carousel-slide:first-child{
+    display: block;
+  }
 
-.carousel-btn-prev{
-  left: 0;
+  .carousel-btn-next,
+  .carousel-btn-prev{
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .carousel-btn-next{
+    right: 10px;
+  }
+
+  .carousel-btn-prev{
+    left: 10px;
+  }
 }
