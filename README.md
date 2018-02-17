@@ -7,14 +7,15 @@
 #### 문의&이메일 : j.lee@jcorporationtech.com
 #### 라이센스 : <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
 
-<br /><hr /><br />
+<hr />
 
-#### @JSDOC API문서 자동 생성 처리 - 2018.02.17
+## @JSDOC API문서 자동 생성 처리 - 2018.02.17
 <a href="http://usejsdoc.org/index.html" target="_blank">JSDOC</a><br />
 폴더명 : api_docs<br />
 설치법 : npm install -g jsdoc 또는 npm install --save-dev jsdoc<br />
-실행법 : <code>npm run build 또는 npm run jsdoc</code>
+실행법 : <code>npm run build 또는 npm run jsdoc</code><br />
 참고문서 : https://github.com/jsdoc3/jsdoc <br />
 설정파일 : jsdoc.config.json<br />
 
-<br /><hr /><br />
+<hr />
+
