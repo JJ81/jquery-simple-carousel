@@ -1,6 +1,6 @@
 {
   "name": "jquery-simple-carousel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "simple carousel",
   "main": "assets/javascript/SimpleCarousel.js",
   "scripts": {
