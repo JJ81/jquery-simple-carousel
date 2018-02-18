@@ -1,4 +1,4 @@
-# jquery-simple-carousel <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
+# jquery-simple-carousel [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![Bower](https://img.shields.io/bower/v/bootstrap.svg)]()
 
 ```
 플러그인명 : jquery simple carousel
@@ -6,7 +6,7 @@
 개시일 : 2018.2.13
 참여 : 누구나 함께 코드를 발전시키고 리뷰를 진행해주시면 됩니다.
 문의&이메일 : j.lee@jcorporationtech.com
-라이센스 : <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
+라이센스 : MIT
 ```
 
 ## 컴포넌트 설치방법
