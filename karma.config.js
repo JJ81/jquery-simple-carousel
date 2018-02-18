@@ -5,13 +5,12 @@ module.exports = function(config) {
 	config.set({
 		
 		plugins: [
-			'karma-mocha',
-			'karma-chrome-launcher',
-			'karma-phantomjs-launcher',
-			'karma-babel-preprocessor',
 			'karma-webpack',
+			'karma-mocha',
 			'karma-jasmine',
-			'karma-qunit'
+			'karma-qunit',
+			'karma-chrome-launcher',
+			'karma-phantomjs-launcher'
 		],
 		
 		// base path that will be used to resolve all patterns (eg. files, exclude)
