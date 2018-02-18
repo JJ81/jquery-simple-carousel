@@ -1,10 +1,10 @@
 # jquery-simple-carousel <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
 
 ```
-플러그인 이름 : jquery simple carousel
-현재 버전 : v1.0.1
+플러그인명 : jquery simple carousel
+현재버전 : v1.0.1
 개시일 : 2018.2.13
-작성자 : 누구나 함께 소스를 발전시키고 리뷰를 진행해주시면 됩니다.
+참여 : 누구나 함께 코드를 발전시키고 리뷰를 진행해주시면 됩니다.
 문의&이메일 : j.lee@jcorporationtech.com
 라이센스 : <a href="#"><img src="https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000" alt="license" class="badge"></a>
 ```
