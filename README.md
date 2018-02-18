@@ -31,6 +31,12 @@ bower install --save jquery-simple-carousel
 위치 : test/*
 내용 : karma, mocha, jasmine, qunit
 설정파일 : karma.config.js
+참고 문서
+Karma : https://karma-runner.github.io/2.0/index.html
+Karma Adaptor List : https://www.npmjs.com/browse/keyword/karma-preprocessor
+Mocha : https://mochajs.org/
+Jasmine : https://jasmine.github.io/
+Qunit : http://qunitjs.com/
 ```
    
 
