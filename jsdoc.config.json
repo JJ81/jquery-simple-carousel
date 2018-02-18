@@ -1,9 +1,9 @@
 {
   "opts": {
-    "template": "templates/default",  // same as -t templates/default
-    "encoding": "utf8",               // same as -e utf8
-    "destination": "./api_docs/",          // same as -d ./out/
-    "recurse": true,                  // same as -r
-    "tutorials": "./api_docs/tutorials" // same as -u path/to/tutorials
+    "template": "templates/default",
+    "encoding": "utf8",
+    "destination": "./api_docs/",
+    "recurse": true,
+    "tutorials": "./api_docs/tutorials"
   }
 }

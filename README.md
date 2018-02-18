@@ -9,6 +9,14 @@
 
 <hr />
 
+## 컴포넌트 설치방법
+<code>git clone https://github.com/JJ81/jquery-simple-carousel.git;</code><br />
+<code>bower install --save jquery-simple-carousel</code><br />
+
+
+<hr />
+
+
 ## @JSDOC API문서 자동 생성 처리 - 2018.02.17
 <a href="http://usejsdoc.org/index.html" target="_blank">JSDOC</a><br />
 폴더명 : api_docs<br />
@@ -16,6 +24,7 @@
 실행법 : <code>npm run build 또는 npm run jsdoc</code><br />
 참고문서 : https://github.com/jsdoc3/jsdoc <br />
 설정파일 : jsdoc.config.json<br />
+
 
 <hr />
 
