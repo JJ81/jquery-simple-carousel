@@ -1,4 +1,4 @@
-# jquery-simple-carousel [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/JJ81/jquery-simple-carousel) [![Bower](https://img.shields.io/bower/v/bootstrap.svg)](https://github.com/JJ81/jquery-simple-carousel)
+# jquery-simple-carousel [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/JJ81/jquery-simple-carousel) [![Bower](https://img.shields.io/bower/v/bootstrap.svg)]()
 
 ```
 플러그인명 : jquery simple carousel
