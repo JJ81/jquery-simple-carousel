@@ -9,7 +9,7 @@
 라이센스 : MIT
 ```
 
-### 컴포넌트 설치 방법
+### @컴포넌트 설치 방법
 ```
 git clone https://github.com/JJ81/jquery-simple-carousel.git;
 bower install --save jquery-simple-carousel
@@ -25,7 +25,14 @@ bower install --save jquery-simple-carousel
 설정파일 : jsdoc.config.json
 ```
 
-
+### @ 테스트 코드
+```
+실행 : npm run test;
+위치 : test/*
+내용 : karma, mocha, jasmine, qunit
+설정파일 : karma.config.js
+```
+   
 
 
 
