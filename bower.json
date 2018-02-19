@@ -1,6 +1,5 @@
 {
   "name": "jquery-simple-carousel",
-  "version": "1.0.3",
   "homepage": "https://github.com/JJ81/jquery-simple-carousel",
   "authors": [
     "j.lee@jcorporationtech.com"
@@ -14,7 +13,11 @@
     "jquery",
     "simple",
     "simple carousel",
-    "rolling"
+    "rolling",
+    "jquery simple carousel",
+    "jquery carousel",
+    "carousel"
+
   ],
   "ignore": [
     ".gitignore",
@@ -28,5 +31,6 @@
   "license": "MIT",
   "dependencies": {
     "jquery-simple-carousel": "*"
-  }
+  },
+  "version": "1.0.0"
 }
