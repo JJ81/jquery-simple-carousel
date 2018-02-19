@@ -2,7 +2,7 @@
 
 ```
 플러그인명 : jquery simple carousel
-현재버전 : v1.0.1
+현재버전 : v1.0.0 | git tag 설정
 개시일 : 2018.2.13
 참여 : 누구나 함께 코드를 발전시키고 리뷰를 진행해주시면 됩니다.
 문의&이메일 : j.lee@jcorporationtech.com
