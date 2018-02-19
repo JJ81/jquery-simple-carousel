@@ -171,15 +171,29 @@
 		
 		/**
 		 * 슬라이드 자동 롤링 설정
-		 *
+		 * @deprecated
 		 * @method looping
 		 * @param {Object} btnGroup - 버튼 객체
 		 * @returns {number} - setInterval로 생성된 타이머 반환
 		 */
-		$.looping = function(btnGroup){
+		$.looping = function(btnGroup){ // 네이밍을 변경 => autoSlide
 			return setInterval(function () {
 				btnGroup.btnNext.click();
-			}, settings.autoSlide);
+			}, settings.autoSlideDuration);
+		};
+		
+		
+		/**
+		 * 슬라이드 자동 롤링 설정
+		 *
+		 * @method autoSlide
+		 * @param {Object} btnGroup - 버튼 객체
+		 * @returns {number} - setInterval로 생성된 타이머 반환
+		 */
+		$.autoSlide = function(btnGroup){
+			return setInterval(function () {
+				btnGroup.btnNext.click();
+			}, settings.autoSlideDuration);
 		};
 		
 		/**
@@ -205,20 +219,24 @@
 			if(settings.pagination){
 				$.setPagination(container);	
 			}
-
-			if(settings.loop){
-				timer = $.looping(btnGroup);
+			
+			
+			if(settings.autoSlide){
+				timer = $.autoSlide(btnGroup);
 
 				$(container).bind('mouseenter', function () {
 					clearInterval(timer);
 				});
 
 				$(container).bind('mouseleave', function () {
-					timer = $.looping(btnGroup);
+					timer = $.autoSlide(btnGroup);
 				});
 			}
-
-			$.clickBullet();
+			
+			if(settings.clickableBullet){
+				$.clickBullet();
+			}
+			
 		};
 
 		this.each(function () {
@@ -232,15 +250,38 @@
 	 * @type {{slide: string, btnNext: string, btnPrev: string, navigation: boolean, bulletClassName: string, effect: string, duration: number, pagination: boolean, autoSlide: number, loop: boolean}}
 	 */
 	$.fn.SimpleCarousel.default = {
+		// 선택자 설정
 		slide : '.carousel-slide',
 		btnNext : '.carousel-btn-next',
 		btnPrev : '.carousel-btn-prev',
+		
+		// 네비게이션 출력 여부
 		navigation: true,
-		bulletClassName : 'bullet',
-		effect : '',
-		duration : 500,
+		
+		// 페이지네이션 출력 여부
 		pagination : false,
-		autoSlide : 3000,
-		loop: false
+		// 페이지네이션 내 블릿 네임 설정
+		bulletClassName : 'bullet',
+		
+		// 페이지네이션 내의 블릿 클릭할 수 있는지 여부
+		clickableBullet : false,
+		
+		// 페이지 전환 효과 설정
+		effect : '',
+		
+		// 페이지가 전환되는 시간
+		duration : 500,
+		
+		// 루프를 돌지 여부 설정 TODO 해당 로직은 아직 설정이 되지 않음
+		loop: true,
+		
+		// 자동 롤링 설정
+		autoSlide : false,
+		// 자동으로 롤링되는 시간, 인터벌
+		autoSlideDuration : 3000
+		
+		// TODO 마우스 오버시 중단이 되는 설정을 추가 할 것
+		
+		
 	};
 }(jQuery));

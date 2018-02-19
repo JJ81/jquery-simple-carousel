@@ -35,12 +35,16 @@
 		$('.carousel-container').SimpleCarousel({
 			slide : '.carousel-slide'
 			,navigation: true
-			,bulletClassName : 'bullet'
-			,effect : 'fade'
-			,duration: 800
 			,pagination : true
-			,loop : true
-			,autoSlide : 5000
+		  	,bulletClassName : 'bullet'
+			,clickableBullet : true
+
+			,duration: 800 // 슬라이드 전환 duration이라는 네이밍으로 변경을 해보자.
+
+			,autoSlide : true // audoSlideDuration
+		  	,autoSlideDuration : 5000
+			,effect : 'fade'
+
 		});
 	</script>
 </body>
