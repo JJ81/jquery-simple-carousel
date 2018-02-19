@@ -34,14 +34,17 @@
 	<script>
 		$('.carousel-container').SimpleCarousel({
 			slide : '.carousel-slide'
+		  	,btnPrev : '.carousel-btn-prev'
+			,btnNext : '.carousel-btn-next'
 			,navigation: true
 			,pagination : true
 		  	,bulletClassName : 'bullet'
 			,clickableBullet : true
-			,duration: 800
-			,autoSlide : true
-		  	,autoSlideDuration : 5000
+			,speed: 800
+			,autoPlay : true
+		  	,delay : 5000
 			,effect : 'fade'
+		  	,stopOnInterrupt : true
 		});
 	</script>
 </body>

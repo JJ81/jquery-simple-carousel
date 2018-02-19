@@ -69,7 +69,7 @@
 
 				// TODO animate을 분리할 것인가...
 				carouselSlide.css('display', 'none');
-				carouselSlide.eq(slide).fadeIn(settings.duration);
+				carouselSlide.eq(slide).fadeIn(settings.speed);
 			}
 
 			if(settings.pagination){
@@ -179,7 +179,7 @@
 		$.looping = function(btnGroup){ // 네이밍을 변경 => autoSlide
 			return setInterval(function () {
 				btnGroup.btnNext.click();
-			}, settings.autoSlideDuration);
+			}, settings.delay);
 		};
 		
 		
@@ -193,7 +193,7 @@
 		$.autoSlide = function(btnGroup){
 			return setInterval(function () {
 				btnGroup.btnNext.click();
-			}, settings.autoSlideDuration);
+			}, settings.delay);
 		};
 		
 		/**
@@ -221,16 +221,19 @@
 			}
 			
 			
-			if(settings.autoSlide){
+			if(settings.autoPlay){
 				timer = $.autoSlide(btnGroup);
-
-				$(container).bind('mouseenter', function () {
-					clearInterval(timer);
-				});
-
-				$(container).bind('mouseleave', function () {
-					timer = $.autoSlide(btnGroup);
-				});
+				
+				if(settings.stopOnInterrupt){
+					// TODO 별도의 메서드로 분리할 것.
+					$(container).bind('mouseenter', function () {
+						clearInterval(timer);
+					});
+					
+					$(container).bind('mouseleave', function () {
+						timer = $.autoSlide(btnGroup);
+					});
+				}
 			}
 			
 			if(settings.clickableBullet){
@@ -244,10 +247,11 @@
 		});
 	};
 	
+	
+	
 	/**
-	 * 슬라이더의 기본 값을 설정한다.
-	 *
-	 * @type {{slide: string, btnNext: string, btnPrev: string, navigation: boolean, bulletClassName: string, effect: string, duration: number, pagination: boolean, autoSlide: number, loop: boolean}}
+	 * 기본값 설정
+	 * @type {{slide: string, btnNext: string, btnPrev: string, navigation: boolean, pagination: boolean, bulletClassName: string, clickableBullet: boolean, effect: string, speed: number, loop: boolean, autoPlay: boolean, delay: number, stopOnMouseOver: boolean}}
 	 */
 	$.fn.SimpleCarousel.default = {
 		// 선택자 설정
@@ -270,17 +274,33 @@
 		effect : '',
 		
 		// 페이지가 전환되는 시간
-		duration : 500,
+		speed : 500,
 		
-		// 루프를 돌지 여부 설정 TODO 해당 로직은 아직 설정이 되지 않음
+		// 루프를 돌지 여부 설정
+		// TODO 해당 로직은 아직 설정이 되지 않음
+		// TODO 오토플레이가 되고 있을 때, loop를 false로 설정이 되어 있다면 버튼 작동에 대해서 어떤 로직을 설정해야 하는가?
 		loop: true,
 		
 		// 자동 롤링 설정
-		autoSlide : false,
+		autoPlay : false,
 		// 자동으로 롤링되는 시간, 인터벌
-		autoSlideDuration : 3000
+		delay : 3000,
 		
-		// TODO 마우스 오버시 중단이 되는 설정을 추가 할 것
+		// autoplay 중단 설정
+		stopOnInterrupt : false
+		
+		// TODO 페이지네이션에 숫자를 추가하는 설정
+		
+		// TODO 키보드로 작동이 될 수 있도록 설정
+		
+		// TODO Draggable 설정
+		
+		// TODO Mobile Swiper 설정
+		
+		// TODO easing 연결
+		
+		// TODO Lazy Loading연결
+		
 		
 		
 	};
