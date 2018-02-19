@@ -1,12 +1,11 @@
 {
   "name": "jquery-simple-carousel",
-  "main" : "SimpleCarousel.min.js",
+  "main": "",
   "homepage": "https://github.com/JJ81/jquery-simple-carousel",
   "authors": [
     "j.lee@jcorporationtech.com"
   ],
   "description": "jquery simple carousel",
-  "main": "",
   "keywords": [
     "carousel",
     "slider",
@@ -18,7 +17,6 @@
     "jquery simple carousel",
     "jquery carousel",
     "carousel"
-
   ],
   "ignore": [
     ".gitignore",
@@ -31,7 +29,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "jquery-simple-carousel": "*"
+    "jquery-simple-carousel": "^1.0.0",
+    "jquery": "^3.3.1"
   },
   "version": "1.0.0"
 }
