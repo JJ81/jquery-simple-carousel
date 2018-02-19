@@ -4,7 +4,7 @@
   "description": "simple carousel",
   "main": "assets/javascript/SimpleCarousel.js",
   "scripts": {
-    "server" : "http-server ./",
+    "server": "http-server ./",
     "build": "webpack --config webpack.config.js;jsdoc -c ./jsdoc.config.json -d ./api_docs ./assets/javascript/SimpleCarousel.js --verbose;",
     "jsdoc": "jsdoc -c ./jsdoc.config.json -d ./api_docs ./assets/javascript/SimpleCarousel.js --verbose;",
     "test": "karma start karma.config.js --log-level debug --single-run"
@@ -54,5 +54,7 @@
     "webpack": "^3.11.0",
     "yuidocjs": "^0.10.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
