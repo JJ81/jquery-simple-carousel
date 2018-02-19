@@ -12,7 +12,8 @@
 ### @컴포넌트 설치 방법
 ```
 git clone https://github.com/JJ81/jquery-simple-carousel.git;
-bower install --save jquery-simple-carousel
+bower install --save jquery-simple-carousel;
+bower install --save kor-simple-slider;
 ```
 
 ### @JSDOC API문서 자동 생성 처리
