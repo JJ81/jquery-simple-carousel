@@ -1,5 +1,6 @@
 {
   "name": "jquery-simple-carousel",
+  "main" : "SimpleCarousel.min.js",
   "homepage": "https://github.com/JJ81/jquery-simple-carousel",
   "authors": [
     "j.lee@jcorporationtech.com"

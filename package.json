@@ -55,6 +55,7 @@
     "yuidocjs": "^0.10.2"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "semver": "^5.5.0"
   }
 }
