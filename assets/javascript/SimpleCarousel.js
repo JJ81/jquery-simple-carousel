@@ -6,6 +6,7 @@
 	Author : Anybody can join us to enhance our code and review. Welcome.
 	License: MIT
 **/
+var jQuery = window.jQuery;
 
 (function($) {
 	/**
@@ -42,7 +43,7 @@
 					current_slide = 0;
 				}
 			}
-			return current_slide;
+			return current_slide; // TODO 현재 슬라이드를 알면 이전과 다음의 슬라이드 배치가 가능하다.
 		};
 		
 		/**
@@ -53,8 +54,13 @@
 		 * @param {Number} pos - 슬라이드 번호
 		 */
 		$.action = function(direction, pos){
-			var slide = null;
+			var
+				slide = 0,
+				currentSlide = 0,
+				prevSlide = 0,
+				nextSlide = 0;
 			
+			// 특정 위치로 이동을 시킬 경우는 아직 구현이 안됨
 			if(pos === '' || pos === undefined){
 				slide = $.count(direction);
 			}else{
@@ -66,10 +72,124 @@
 				carouselSlide.css('display', 'none');
 				carouselSlide.eq(slide).css('display', 'block');
 			}else if(settings.effect === 'fade'){
-
-				// TODO animate을 분리할 것인가...
 				carouselSlide.css('display', 'none');
 				carouselSlide.eq(slide).fadeIn(settings.speed);
+			} else if(settings.effect === 'horizontal'){
+				
+				
+				
+				
+				// 다음 버튼을 눌렀을 때의 연산
+				if(direction === 'next'){
+					currentSlide = (slide===0) ? total-1 : slide-1;
+					prevSlide = (currentSlide===0) ? total-1 : currentSlide-1;
+					nextSlide = (currentSlide===(total-1)) ? 0 : currentSlide+1;
+					
+					// console.log('====== current =======');
+					// console.log('direction : ' + direction);
+					// console.log('prev : ' + prevSlide);
+					// console.log('current : ' + currentSlide);
+					// console.log('next : ' + nextSlide);
+					// console.log('====== after =======');
+					// console.log('moved current slide : ' + slide);
+					
+					
+					// 이전 것과 현재 것은 활성화
+					carouselSlide.eq(nextSlide).css({
+						display: 'block'
+					});
+					
+					carouselSlide.eq(currentSlide).css({
+						display: 'block'
+					});
+					
+					
+					carouselSlide.eq(currentSlide).stop().animate({
+						left : '-800px'
+					}, 500);
+					
+					carouselSlide.eq(nextSlide).stop().animate({
+						left : '0'
+					}, 500);
+					
+					
+					setTimeout(function () {
+						carouselSlide.css({
+							'display' : 'none',
+							'left' : '0'
+						});
+						
+						carouselSlide.eq(slide).css({
+							'display': 'block'
+						});
+						
+						// next
+						carouselSlide.eq(((slide === (total-1)) ? 0 : slide+1)).css({
+							'display': 'block',
+							'left' : '800px'
+						});
+					},500);
+					
+				}else if(direction === 'prev'){
+					// TODO 계산중
+					
+					//console.log(slide);
+					currentSlide = (slide === (total-1)) ? 0 : slide+1;
+					prevSlide = (currentSlide===0) ? total-1 : currentSlide-1;
+					nextSlide = (currentSlide===(total-1)) ? 0 : currentSlide+1;
+					
+					// console.log('====== current =======');
+					// console.log('direction : ' + direction);
+					// console.log('prev : ' + prevSlide);
+					// console.log('current : ' + currentSlide);
+					// console.log('next : ' + nextSlide);
+					// console.log('====== after =======');
+					// console.log('current after moved : ' + slide);
+					
+					
+					// 이전 것과 현재 것은 활성화
+					carouselSlide.eq(prevSlide).css({
+						display: 'block',
+						left : '-800px'
+					});
+					
+					carouselSlide.eq(currentSlide).css({
+						display: 'block',
+						left: '0'
+					});
+					
+					
+					carouselSlide.eq(prevSlide).stop().animate({
+						left : '0'
+					}, 500);
+					
+					carouselSlide.eq(currentSlide).stop().animate({
+						left : '800px'
+					}, 500);
+					
+					
+					setTimeout(function () {
+						carouselSlide.css({
+							'display' : 'none',
+							'left' : '0'
+						});
+						
+						carouselSlide.eq(slide).css({
+							'display': 'block'
+						});
+						
+						// prev
+						carouselSlide.eq(((slide === (total-1)) ? 0 : slide-1)).css({
+							'display': 'block',
+							'left' : '800px'
+						});
+					},500);
+					
+				}else{ // TODO 특정 위치로 이동을 시키게 될 경우
+					console.log('no direction data');
+				}
+				
+				
 			}
 
 			if(settings.pagination){
@@ -240,6 +360,26 @@
 				$.clickBullet();
 			}
 			
+			
+			if(settings.effect === 'horizontal'){
+				// TODO 메서드로든 임의로든 위치 세팅을 해주어야 한다.
+				// console.log('horizontal settings');
+				
+				// 단방향으로 롤링일 경우를 먼저 구현하기 위해서 닫아둔다.
+				// carouselSlide.eq(total-1).css({
+				// 	display: 'block',
+				// 	left: '-800px',
+				// 	top: '0'
+				// });
+				
+				carouselSlide.eq(1).css({
+					display: 'block',
+					left: '800px',
+					top: '0'
+				});
+				
+			}
+			
 		};
 
 		this.each(function () {
@@ -302,6 +442,17 @@
 		// TODO Lazy Loading연결
 		
 		
+		// 애니메이션을 넣기 위해서는 매 슬라이드의 위치를 정리해야 한다
+		// 이전 슬라이드와 다음 슬라이드의 위치를 잡는 로직을 어디서 처리할 것인가?
+		
+		
+		
+		
 		
 	};
+	
+	
+	
+	
+	
 }(jQuery));

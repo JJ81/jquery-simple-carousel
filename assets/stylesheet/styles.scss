@@ -13,6 +13,9 @@ a{
 .carousel-container{
   position: relative;
   // carousel에 맞게 임의로 설정을 해야 할 수 있다.
+  width: 800px;
+  margin: 0 auto;
+
   height: 500px;
   overflow: hidden;
 
