@@ -27,7 +27,8 @@
 		<a href="#" class="carousel-btn-next">next</a>
 	</div>
 
-	<script src="./assets/javascript/vendor/jquery.min.js"></script>
+	<script src="./assets/components/jquery/dist/jquery.min.js"></script>
+	<script src="./assets/components/jquery.easing/js/jquery.easing.min.js"></script>
 	<script src="./assets/javascript/SimpleCarousel.js"></script>
 	<!--<script src="./assets/javascript/dist/SimpleCarousel.min.js"></script>-->
 	<!--<script src="./assets/components/jquery-simple-carousel/assets/javascript/dist/SimpleCarousel.min.js"></script>-->
@@ -41,9 +42,13 @@
 		  	,bulletClassName : 'bullet'
 			,clickableBullet : true
 			,speed: 800
-			,autoPlay : false
+			,autoPlay : true
 		  	,delay : 5000
 			,effect : 'horizontal'
+			// 애니메이션 선택을 위한 참고 문서
+		  	// http://gsgd.co.uk/sandbox/jquery/easing/
+		  	// https://matthewlein.com/tools/jquery-easing
+		  	,animateEffect : 'easeOutQuad'
 		  	,stopOnInterrupt : true
 		});
 	</script>

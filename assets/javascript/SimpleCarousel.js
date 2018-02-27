@@ -6,7 +6,6 @@
 	Author : Anybody can join us to enhance our code and review. Welcome.
 	License: MIT
 **/
-var jQuery = window.jQuery;
 
 (function($) {
 	/**
@@ -106,11 +105,17 @@ var jQuery = window.jQuery;
 					
 					carouselSlide.eq(currentSlide).stop().animate({
 						left : '-800px'
-					}, 500);
+					}, {
+						duration : settings.speed,
+						easing: settings.animateEffect
+					});
 					
 					carouselSlide.eq(nextSlide).stop().animate({
 						left : '0'
-					}, 500);
+					}, {
+						duration : settings.speed,
+						easing: settings.animateEffect
+					});
 					
 					
 					setTimeout(function () {
@@ -128,7 +133,7 @@ var jQuery = window.jQuery;
 							'display': 'block',
 							'left' : '800px'
 						});
-					},500);
+					},settings.speed);
 					
 				}else if(direction === 'prev'){
 					// TODO 계산중
@@ -161,11 +166,17 @@ var jQuery = window.jQuery;
 					
 					carouselSlide.eq(prevSlide).stop().animate({
 						left : '0'
-					}, 500);
+					}, {
+						duration : settings.speed,
+						easing: settings.animateEffect
+					});
 					
 					carouselSlide.eq(currentSlide).stop().animate({
 						left : '800px'
-					}, 500);
+					}, {
+						duration : settings.speed,
+						easing: settings.animateEffect
+					});
 					
 					
 					setTimeout(function () {
@@ -183,10 +194,14 @@ var jQuery = window.jQuery;
 							'display': 'block',
 							'left' : '800px'
 						});
-					},500);
+					},settings.speed);
 					
 				}else{ // TODO 특정 위치로 이동을 시키게 될 경우
 					console.log('no direction data');
+					// 현재 위치에서 이동하고자 하는 위치의 슬라이드를 바로 뒤에 붙여서 조정하고 이동시키는 것으로 한다
+					// 이 때도 위와 같이 좌측인지 우측인지에 따라서 재조정이 필요하다
+					
+					
 				}
 				
 				
@@ -412,6 +427,10 @@ var jQuery = window.jQuery;
 		
 		// 페이지 전환 효과 설정
 		effect : '',
+		animateEffect : '',
+		
+		// TODO 자동으로 이동하는 방향을 설정할 수 있도록 한다
+		autoAnimiateDirection : '',
 		
 		// 페이지가 전환되는 시간
 		speed : 500,
@@ -450,9 +469,5 @@ var jQuery = window.jQuery;
 		
 		
 	};
-	
-	
-	
-	
 	
 }(jQuery));
