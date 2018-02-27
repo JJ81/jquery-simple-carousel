@@ -7,7 +7,7 @@
 	License: MIT
 **/
 
-(function($) {
+(function($, window) {
 	/**
 	 * 사용자 생성자 SimpleCarousel
 	 *
@@ -18,6 +18,7 @@
 		
 		var
 			current_slide = 0
+			,container_width = 0
 			,carouselSlide = null
 			,total = 0
 			,pagination = null
@@ -60,7 +61,7 @@
 				nextSlide = 0;
 			
 			// 특정 위치로 이동을 시킬 경우는 아직 구현이 안됨
-			if(pos === '' || pos === undefined){
+			if(pos === undefined){
 				slide = $.count(direction);
 			}else{
 				slide = pos;
@@ -75,42 +76,24 @@
 				carouselSlide.eq(slide).fadeIn(settings.speed);
 			} else if(settings.effect === 'horizontal'){
 				
-				
-				
-				
 				// 다음 버튼을 눌렀을 때의 연산
 				if(direction === 'next'){
 					currentSlide = (slide===0) ? total-1 : slide-1;
-					prevSlide = (currentSlide===0) ? total-1 : currentSlide-1;
 					nextSlide = (currentSlide===(total-1)) ? 0 : currentSlide+1;
-					
-					// console.log('====== current =======');
-					// console.log('direction : ' + direction);
-					// console.log('prev : ' + prevSlide);
-					// console.log('current : ' + currentSlide);
-					// console.log('next : ' + nextSlide);
-					// console.log('====== after =======');
-					// console.log('moved current slide : ' + slide);
-					
-					
-					// 이전 것과 현재 것은 활성화
-					carouselSlide.eq(nextSlide).css({
-						display: 'block'
-					});
 					
 					carouselSlide.eq(currentSlide).css({
 						display: 'block'
-					});
-					
-					
-					carouselSlide.eq(currentSlide).stop().animate({
-						left : '-800px'
+					}).stop().animate({
+						left : '-800px' // TODO 미처리; 로딩일 될 때 계산, 리사이즈가 될 때 재계산
 					}, {
 						duration : settings.speed,
 						easing: settings.animateEffect
 					});
 					
-					carouselSlide.eq(nextSlide).stop().animate({
+
+					carouselSlide.eq(nextSlide).css({
+						display: 'block'
+					}).stop().animate({
 						left : '0'
 					}, {
 						duration : settings.speed,
@@ -124,6 +107,7 @@
 							'left' : '0'
 						});
 						
+						// current after moved
 						carouselSlide.eq(slide).css({
 							'display': 'block'
 						});
@@ -136,43 +120,25 @@
 					},settings.speed);
 					
 				}else if(direction === 'prev'){
-					// TODO 계산중
 					
-					//console.log(slide);
 					currentSlide = (slide === (total-1)) ? 0 : slide+1;
 					prevSlide = (currentSlide===0) ? total-1 : currentSlide-1;
-					nextSlide = (currentSlide===(total-1)) ? 0 : currentSlide+1;
 					
-					// console.log('====== current =======');
-					// console.log('direction : ' + direction);
-					// console.log('prev : ' + prevSlide);
-					// console.log('current : ' + currentSlide);
-					// console.log('next : ' + nextSlide);
-					// console.log('====== after =======');
-					// console.log('current after moved : ' + slide);
-					
-					
-					// 이전 것과 현재 것은 활성화
 					carouselSlide.eq(prevSlide).css({
 						display: 'block',
-						left : '-800px'
-					});
-					
-					carouselSlide.eq(currentSlide).css({
-						display: 'block',
-						left: '0'
-					});
-					
-					
-					carouselSlide.eq(prevSlide).stop().animate({
+						left : '-'+container_width+'px'
+					}).stop().animate({
 						left : '0'
 					}, {
 						duration : settings.speed,
 						easing: settings.animateEffect
 					});
 					
-					carouselSlide.eq(currentSlide).stop().animate({
-						left : '800px'
+					carouselSlide.eq(currentSlide).css({
+						display: 'block',
+						left: '0'
+					}).stop().animate({
+						left : container_width+'px'
 					}, {
 						duration : settings.speed,
 						easing: settings.animateEffect
@@ -192,7 +158,7 @@
 						// prev
 						carouselSlide.eq(((slide === (total-1)) ? 0 : slide-1)).css({
 							'display': 'block',
-							'left' : '800px'
+							'left' : container_width + 'px'
 						});
 					},settings.speed);
 					
@@ -200,7 +166,7 @@
 					console.log('no direction data');
 					// 현재 위치에서 이동하고자 하는 위치의 슬라이드를 바로 뒤에 붙여서 조정하고 이동시키는 것으로 한다
 					// 이 때도 위와 같이 좌측인지 우측인지에 따라서 재조정이 필요하다
-					
+					//
 					
 				}
 				
@@ -282,6 +248,7 @@
 			var btnPrev = $(container).find(settings.btnPrev);
 			var btnNext = $(container).find(settings.btnNext);
 
+			// TODO 이전버튼과 다음 버튼을 눌렀을 때 애니메이션이 겹치거나 하는 현상을 제거하기 위해서 별도의 설정이 필요하다
 			btnPrev.bind('click', function (e) {
 				e.preventDefault();
 				// 순서가 카운트Count -> 슬라이드액션Move -> Bullet불릿변경(선택)
@@ -387,11 +354,23 @@
 				// 	top: '0'
 				// });
 				
+				
+				// 아래는 임시 설정 코드로 리팩토링이 필요함
+				
 				carouselSlide.eq(1).css({
 					display: 'block',
 					left: '800px',
 					top: '0'
 				});
+				
+				container_width = $(container).width();
+				$(window).bind('resize', function () {
+					container_width = $(container).width();
+				});
+				
+				
+				
+				
 				
 			}
 			
@@ -470,4 +449,4 @@
 		
 	};
 	
-}(jQuery));
+}(jQuery, window));
