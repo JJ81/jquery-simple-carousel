@@ -84,13 +84,12 @@
 					carouselSlide.eq(currentSlide).css({
 						display: 'block'
 					}).stop().animate({
-						left : '-800px' // TODO 미처리; 로딩일 될 때 계산, 리사이즈가 될 때 재계산
+						left : '-'+container_width+'px' // TODO 미처리; 로딩일 될 때 계산, 리사이즈가 될 때 재계산
 					}, {
 						duration : settings.speed,
 						easing: settings.animateEffect
 					});
 					
-
 					carouselSlide.eq(nextSlide).css({
 						display: 'block'
 					}).stop().animate({
@@ -115,7 +114,7 @@
 						// next
 						carouselSlide.eq(((slide === (total-1)) ? 0 : slide+1)).css({
 							'display': 'block',
-							'left' : '800px'
+							'left' : container_width + 'px'
 						});
 					},settings.speed);
 					
@@ -305,14 +304,11 @@
 		 * @param {Object} container - 슬라이드 컨테이너 객체
 		 */
 		$.initialize = function (container) {
-			/*
-				이동 효과 추가에 대해서 easing + animate
-			*/
+
 			carouselSlide = $(container).find(settings.slide);
 			total = carouselSlide.length;
 
-			var btnGroup = null;
-			var timer = null;
+			var btnGroup = null ,timer = null;
 
 			if(settings.navigation){
 				btnGroup = $.setNavigation(container);
@@ -344,35 +340,22 @@
 			
 			
 			if(settings.effect === 'horizontal'){
-				// TODO 메서드로든 임의로든 위치 세팅을 해주어야 한다.
 				// console.log('horizontal settings');
-				
-				// 단방향으로 롤링일 경우를 먼저 구현하기 위해서 닫아둔다.
-				// carouselSlide.eq(total-1).css({
-				// 	display: 'block',
-				// 	left: '-800px',
-				// 	top: '0'
-				// });
-				
-				
-				// 아래는 임시 설정 코드로 리팩토링이 필요함
-				
-				carouselSlide.eq(1).css({
-					display: 'block',
-					left: '800px',
-					top: '0'
-				});
 				
 				container_width = $(container).width();
 				$(window).bind('resize', function () {
 					container_width = $(container).width();
 				});
 				
-				
-				
+				carouselSlide.eq(1).css({
+					display: 'block',
+					left: container_width + 'px',
+					top: '0'
+				});
 				
 				
 			}
+			
 			
 		};
 
